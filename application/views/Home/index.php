@@ -7,9 +7,12 @@
 	<title>Home</title>
 </head>
 <body>
-	<div class="home_container">
+	<div class="home">
 		<?php $this->load->view('components/nav'); ?>
-		Home
+
+		<div class="home__main_container">
+			Home
+		</div>
 	</div>
 </body>
 </html>
