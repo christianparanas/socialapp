@@ -6,6 +6,20 @@
 	<title>Register</title>
 </head>
 <body>
-	Register
+	<div class="register">
+		
+
+		<div class="register__main_container">
+			
+			<form action="" method="POST">
+				<input type="text" name="reg_username" placeholder="Username" required />
+				<input type="text" name="reg_firstname" placeholder="First name" required />
+				<input type="text" name="reg_lastname" placeholder="Last name" required />
+				<input type="email" name="reg_email" placeholder="Email" required />
+				<input type="password" name="reg_password" placeholder="Password" required />
+				<input type="submit" name="register_btn" value="Register" />
+			</form>
+		</div>
+	</div>
 </body>
 </html>

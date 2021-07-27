@@ -12,6 +12,14 @@ class Auth extends CI_Controller {
 
 	public function register()
 	{
-		$this->load->view('Auth/register');
+		if($this->input->post('register_btn')) 
+		{
+			$this->load->model('AuthModel');
+			$this->AuthModel->register();
+		}
+		else 
+		{
+			$this->load->view('Auth/register');
+		}
 	}
 }
