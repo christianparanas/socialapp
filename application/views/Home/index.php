@@ -7,7 +7,9 @@
 	<title>Home</title>
 </head>
 <body>
-	Home
-	
+	<div class="home_container">
+		<?php $this->load->view('components/nav'); ?>
+		Home
+	</div>
 </body>
 </html>
