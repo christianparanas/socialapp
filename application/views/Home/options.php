@@ -13,8 +13,17 @@
 		<?php $this->load->view('components/nav'); ?>
 
 		<div class="home__options__main_container">
-			options
-				<a href="<?php echo site_url('/auth/logout'); ?>">Logout</a>
+			<div class="home__options_items">
+				<div class="item">
+					<i class="far fa-user"></i>
+					<div class="name">
+						<?= $this->session->username ?>
+						<p>View Profile</p>
+					</div>
+					
+				</div>
+				<a class="item" href="<?php echo site_url('/auth/logout'); ?>"><i class="far fa-sign-out-alt"></i> Logout</a>
+			</div>
 		</div>
 	</div>
 	
