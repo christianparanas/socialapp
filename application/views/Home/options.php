@@ -14,14 +14,13 @@
 
 		<div class="home__options__main_container">
 			<div class="home__options_items">
-				<div class="item">
+				<a class="item" href="<?php echo site_url('account/'); ?>">
 					<i class="far fa-user"></i>
 					<div class="name">
 						<?= $this->session->username ?>
 						<p>View Profile</p>
 					</div>
-					
-				</div>
+				</a>
 				<a class="item" href="<?php echo site_url('/auth/logout'); ?>"><i class="far fa-sign-out-alt"></i> Logout</a>
 			</div>
 		</div>

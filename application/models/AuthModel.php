@@ -18,7 +18,8 @@ class AuthModel extends CI_Model {
 			if(password_verify($data['password'], $result->password)) {
 				$newdata = array(
 						'id' => $result->id,
-		        'username'  => $result->username,
+		        'firstname' => $result->firstname,
+		        'lastname' => $result->lastname,
 		        'email'     => $result->email,
 		        'isLoggedIn' => TRUE
 					);
@@ -41,7 +42,6 @@ class AuthModel extends CI_Model {
 
 	public function register() {
 		$data = array(
-			'username' => $this->input->post('reg_username'),
 			'firstname' => $this->input->post('reg_firstname'),
 			'lastname' => $this->input->post('reg_lastname'),
 			'email' => $this->input->post('reg_email'),
@@ -52,6 +52,6 @@ class AuthModel extends CI_Model {
 	}
 
 	public function logout() {
-		$this->session->unset_userdata(array('username', 'email', 'isLoggedIn'));
+		$this->session->unset_userdata(array('id', 'lastname', 'firstname', 'email', 'isLoggedIn'));
 	}
 }

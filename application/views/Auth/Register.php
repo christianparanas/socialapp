@@ -17,7 +17,6 @@
 			</div>
 			
 			<form action="" method="POST">
-				<input type="text" name="reg_username" placeholder="Username" required />
 				<input type="text" name="reg_firstname" placeholder="First name" required />
 				<input type="text" name="reg_lastname" placeholder="Last name" required />
 				<input type="email" name="reg_email" placeholder="Email" required />
