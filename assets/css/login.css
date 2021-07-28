@@ -6,19 +6,20 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-.register {
+.login {
 
 }
 
-.register__main_container {
+.login__main_container {
 	padding: 90px 20px;
 }
 
-.reg_log {
+.log_reg {
+	font-size: 13px;
 	margin-top: 10px;
 	text-align: center;
-	font-size: 13px;
 }
+
 
 .form_header {
 	font-size: 23px;
@@ -42,7 +43,7 @@ form input {
   border-radius: 12px;
 }
 
-form .reg_btn {
+form .log_btn {
 	color: white;
 	background: #310F74;
 	margin-bottom: 0;

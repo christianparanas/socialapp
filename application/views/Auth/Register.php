@@ -9,7 +9,6 @@
 </head>
 <body>
 	<div class="register">
-		
 
 		<div class="register__main_container">
 
