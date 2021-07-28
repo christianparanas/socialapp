@@ -117,3 +117,36 @@
 	background: #43394c;
 }
 
+
+.account__user_friends {
+	margin-top: 25px;
+}
+
+.account__user_friends .header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.account__user_friends .header .item:nth-child(1) p {
+	font-size: 14px;
+}
+
+.account__user_friends_container {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+}
+
+.account__user_friends_container .friend {
+	width: 100%;
+}
+
+.account__user_friends_container .friend img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.account__user_friends_container .friend p {
+	font-size: 12px;
+}

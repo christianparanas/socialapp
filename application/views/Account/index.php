@@ -41,6 +41,39 @@
 						<div class="personal_detail edit_personal_details_btn">Edit Publlic Details</div>
 					</div>
 				</div>
+
+				<div class="account__user_friends">
+					<div class="header">
+						<div class="item"><strong>Friends</strong><p>58 friends</p></div>
+						<div class="item">Find Friends</div>
+					</div>
+					<div class="account__user_friends_container">
+						<div class="friend">
+							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
+							<p>Christia Paranas</p>
+						</div>
+						<div class="friend">
+							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
+							<p>Christia Paranas</p>
+						</div>
+						<div class="friend">
+							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
+							<p>Christia Paranas</p>
+						</div>
+						<div class="friend">
+							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
+							<p>Christia Paranas</p>
+						</div>
+						<div class="friend">
+							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
+							<p>Christia Paranas</p>
+						</div>
+						<div class="friend">
+							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
+							<p>Christia Paranas</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
