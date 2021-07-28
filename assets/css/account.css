@@ -96,3 +96,24 @@
 	background: #43394c;
 }
 
+.account__user_personal_details {
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.account__user_personal_details .personal_detail {
+	margin-bottom: 5px;
+}
+
+.account__user_personal_details .personal_detail i {
+	margin-right: 5px;
+}
+
+.edit_personal_details_btn {
+	margin-top: 10px;
+	padding: 10px;
+	text-align: center;
+	border-radius: 8px;
+	background: #43394c;
+}
+

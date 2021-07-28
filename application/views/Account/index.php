@@ -35,6 +35,11 @@
 						<div class="item"><i class="fad fa-plus-circle"></i> Add to Story</div>
 						<div class="item"><i class="fal fa-ellipsis-h-alt"></i></div>
 					</div>
+					<div class="account__user_personal_details">
+						<div class="personal_detail"><i class="fal fa-graduation-cap"></i> Studied at <strong>Eastern Visayas State University</strong></div>
+						<div class="personal_detail"><i class="fal fa-home-lg-alt"></i> Lives in <strong>Tacloban City</strong></div>
+						<div class="personal_detail edit_personal_details_btn">Edit Publlic Details</div>
+					</div>
 				</div>
 			</div>
 		</div>
