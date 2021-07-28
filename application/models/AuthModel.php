@@ -16,6 +16,14 @@ class AuthModel extends CI_Model {
 			$result = $query->row();
 
 			if(password_verify($data['password'], $result->password)) {
+				$newdata = array(
+		        'username'  => $result->username,
+		        'email'     => $result->email,
+		        'isLoggedIn' => TRUE
+					);
+
+				$this->session->set_userdata($newdata);
+
 				redirect('/');
 			}
 			else {
@@ -31,7 +39,6 @@ class AuthModel extends CI_Model {
 	}
 
 	public function register() {
-
 		$data = array(
 			'username' => $this->input->post('reg_username'),
 			'firstname' => $this->input->post('reg_firstname'),
@@ -41,5 +48,9 @@ class AuthModel extends CI_Model {
 		);
 
 		return $this->db->insert('users', $data);
+	}
+
+	public function logout() {
+		$this->session->unset_userdata(array('username', 'email', 'isLoggedIn'));
 	}
 }

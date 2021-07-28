@@ -12,6 +12,8 @@
 
 		<div class="home__main_container">
 			Home
+
+		<a href="<?php echo site_url('/auth/logout'); ?>">Logout</a>
 		</div>
 	</div>
 </body>

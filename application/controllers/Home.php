@@ -8,6 +8,17 @@ class Home extends CI_Controller {
 	// load posts
 	public function index() 
 	{
-		$this->load->view('Home/index');
+		if($this->session->userdata()) {
+
+			if($this->session->isLoggedIn) {
+				$this->load->view('Home/index');
+			}
+			else {
+				redirect('auth/');
+			}
+		}
+		else {
+			redirect('auth/');
+		}
 	}
 }
