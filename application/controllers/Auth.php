@@ -16,6 +16,8 @@ class Auth extends CI_Controller {
 		{
 			$this->load->model('AuthModel');
 			$this->AuthModel->register();
+
+			redirect('auth/register');
 		}
 		else 
 		{
