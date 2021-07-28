@@ -1,3 +1,10 @@
+<?php 
+	if($this->session->flashdata('isValidLogin') === FALSE) {
+		echo '<div>Invalid</div>';
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

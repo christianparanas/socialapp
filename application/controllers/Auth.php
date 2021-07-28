@@ -7,7 +7,15 @@ class Auth extends CI_Controller {
 
 	public function index() 
 	{
-		$this->load->view('Auth/login');
+		if($this->input->post('login_btn')) 
+		{
+			$this->load->model('AuthModel');
+			$this->AuthModel->login();
+		}
+		else 
+		{
+			$this->load->view('Auth/login');
+		}
 	}
 
 	public function register()
