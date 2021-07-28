@@ -23,7 +23,7 @@
 .form_header {
 	font-size: 23px;
 	font-weight: 700;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 
 form {
@@ -44,7 +44,7 @@ form input {
 
 form .reg_btn {
 	color: white;
-	background: #310F74;
+	background: #392c44;
 	margin-bottom: 0;
 	transition: all .3s ease;
 	box-shadow: 0 14px 30px 0 rgb(43 80 237 / 20%);

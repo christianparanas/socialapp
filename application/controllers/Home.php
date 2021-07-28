@@ -32,4 +32,13 @@ class Home extends CI_Controller {
 			redirect('auth/');
 		}
 	}
+
+	public function options() {
+		if($this->session->userdata() && $this->session->isLoggedIn) {
+			$this->load->view('Home/options');
+		}
+		else {
+			redirect('auth/');
+		}
+	}
 }
