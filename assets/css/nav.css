@@ -2,16 +2,38 @@
 
 }
 
-.nav_icon_container {
-	display: flex;
-	justify-content: space-between;
-	padding: 0px 20px 0;
-	background: #6b21a8;
+.nav_menu {
+	background-color: #6b21a8;
 	color: #fff;
 }
 
-.nav_icon {
-	font-size: 20px;
-	padding: 15px 20px;
+.nav_icon_container_upper {
+	padding: 15px 20px 15px;
+	display: flex;
+	justify-content: space-between;
 }
+
+.nav_icon_container_upper .nav_icon {
+	font-size: 23px;
+}
+
+.nav_icon_container_lower {
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 20px 0;
+}
+
+.nav_icon_container_lower .nav_icon {
+	font-size: 23px;
+	padding: 10px 20px;
+	border-bottom: 2px solid #6b21a8;
+}
+
+.nav_icon_container_lower .nav_icon:hover {
+	color: #10ffb9;
+	border-bottom: 2px solid #10ffb9;
+
+}
+
+
 
