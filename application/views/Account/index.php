@@ -48,30 +48,14 @@
 						<div class="item">Find Friends</div>
 					</div>
 					<div class="account__user_friends_container">
-						<div class="friend">
-							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
-							<p>Christia Paranas</p>
-						</div>
-						<div class="friend">
-							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
-							<p>Christia Paranas</p>
-						</div>
-						<div class="friend">
-							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
-							<p>Christia Paranas</p>
-						</div>
-						<div class="friend">
-							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
-							<p>Christia Paranas</p>
-						</div>
-						<div class="friend">
-							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
-							<p>Christia Paranas</p>
-						</div>
-						<div class="friend">
-							<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="Friend Image">
-							<p>Christia Paranas</p>
-						</div>
+						<?php
+							for ($x = 0; $x <= 5; $x++) {
+							  echo '<div class="friend">
+												<img src="'.base_url('assets/imgs/me.jpg').'" alt="Friend Image">
+												<p>Christia Paranas</p>
+											</div>';
+							}
+						?>
 					</div>
 				</div>
 			</div>
