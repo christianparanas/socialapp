@@ -1,0 +1,17 @@
+.nav_container {
+
+}
+
+.nav_icon_container {
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 20px 0;
+	background: #6b21a8;
+	color: #fff;
+}
+
+.nav_icon {
+	font-size: 20px;
+	padding: 15px 20px;
+}
+

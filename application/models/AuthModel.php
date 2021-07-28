@@ -17,6 +17,7 @@ class AuthModel extends CI_Model {
 
 			if(password_verify($data['password'], $result->password)) {
 				$newdata = array(
+						'id' => $result->id,
 		        'username'  => $result->username,
 		        'email'     => $result->email,
 		        'isLoggedIn' => TRUE
