@@ -64,3 +64,12 @@ class Home extends CI_Controller {
 		}
 	}
 }
+
+// htaccess prod config
+// <IfModule mod_rewrite.c>
+//   RewriteEngine On
+//   RewriteBase /
+//   RewriteCond %{REQUEST_FILENAME} !-d
+//   RewriteCond %{REQUEST_FILENAME} !-f
+//   RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+// </IfModule>
