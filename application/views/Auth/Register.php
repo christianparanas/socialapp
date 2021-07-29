@@ -24,7 +24,7 @@
 				<input type="submit" name="register_btn" class="reg_btn" value="Register" />
 			</form>
 			<div class="reg_log">
-				Already have an account? <a href="<?php echo site_url('/auth'); ?>">Login</a>
+				Already have an account?  <a href="<?php echo site_url('/auth'); ?>">Login</a>
 			</div>
 		</div>
 	</div>
