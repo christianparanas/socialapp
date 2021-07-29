@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home_create.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Home_create.css')?>">
 	<title>Create Post</title>
 </head>
 <body>
