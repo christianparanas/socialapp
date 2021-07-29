@@ -13,4 +13,13 @@ class HomeModel extends CI_Model {
 		return $query;
 	}
 
+	public function create_post() {
+		$data = array(
+			'userId' => $this->session->id,
+			'caption' => $this->input->post('text_input'),
+			'privacy' => $this->input->post('privacy_input')
+		);
+
+		return $this->db->insert('posts', $data);
+	}
 }

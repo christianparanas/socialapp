@@ -71,6 +71,6 @@ textarea {
 	resize: none;
 }
 
-.txtarea_btn {
+.txtarea_btn, #privacy_input {
 	display: none;
 }

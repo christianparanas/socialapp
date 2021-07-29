@@ -50,10 +50,14 @@ class Home extends CI_Controller {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
 
 			if($this->input->post('submit')) {
-				echo $this->input->post('text_input');
-			}
+				$this->load->model('HomeModel');
 
-			$this->load->view('Home/create');
+				$post_result = $this->HomeModel->create_post();
+				redirect('/');
+			}
+			else {
+				$this->load->view('Home/create');
+			}
 		}
 		else {
 			redirect('auth/');
