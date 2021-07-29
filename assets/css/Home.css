@@ -7,11 +7,53 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-.home__main_container {
-	padding: 20px;
-}
-
 .nav_container .nav_menu .nav_icon_container_lower a:nth-child(1) {
 	color: #00f7ff;
 	border-bottom: 2px solid #00f7ff;
 }
+
+.home__main_container {
+	padding: 20px;
+	display: grid;
+	grid-gap: 20px;
+}
+
+.home__post_container {
+	background: white;
+	box-shadow: 0 14px 30px 0 rgb(43 80 237 / 20%);
+	padding: 20px 20px 10px;
+	border-radius: 8px;
+}
+
+.home__post_header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.home__post_header .item:nth-child(1) {
+	display: grid;
+	grid-template-columns: 50px 1fr;
+}
+
+.home__post_header .item:nth-child(1) img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+
+
+
+
+.home__post_interact {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 10px
+}
+
+.home__post_interact .item {
+	padding: 10px;
+}
+
+
