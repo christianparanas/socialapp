@@ -29,6 +29,18 @@
 	color: #fff;
 }
 
+.top_options .post_btn {
+	border: none;
+	background-color: #392c44;
+	color: white;
+}
+
+.top_options .post_btn:disabled {
+	border: none;
+	background-color: #392c44;
+	color: grey;
+}
+
 .input_container {
 	padding: 20px;
 }
