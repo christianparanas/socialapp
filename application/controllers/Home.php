@@ -48,6 +48,11 @@ class Home extends CI_Controller {
 
 	public function create() {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
+
+			if($this->input->post('submit')) {
+				echo $this->input->post('text_input');
+			}
+
 			$this->load->view('Home/create');
 		}
 		else {

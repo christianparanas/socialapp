@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Home_create.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home_create.css')?>">
 	<title>Create Post</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
 				</a>
 				<p>Create Post</p>
 			</div>
-			<button class="item2 post_btn" name="post_btn" disabled>POST</button>
+			<button class="item2 post_btn" disabled>POST</button>
 		</div>
 
 		<div class="input_container">
@@ -31,7 +31,10 @@
 					</select>
 				</div>
 			</div>
-			<textarea class="text_input" name="" id="" cols="30" rows="10" placeholder="What's on your mind?"></textarea>
+			<form action="" method="POST">
+				<textarea class="text_input" name="text_input" id="" cols="30" rows="10" placeholder="What's on your mind?"></textarea>
+				<input type="submit" class="txtarea_btn" name="submit">
+			</form>
 			<hr>
 		</div>
 	</div>
@@ -39,15 +42,20 @@
 	<script>
 		const textarea_element = document.querySelector('.text_input');
 		const post_btn = document.querySelector('.post_btn');
+		const textarea_btn = document.querySelector('.txtarea_btn');
 
 		textarea_element.addEventListener('input', (event) => {
-		  if(textarea_element.value.length == 0) {
+		  if(textarea_element.value.length === 0 || textarea_element.value === null || textarea_element.value.match(/^\s*$/) !== null) {
 		  	post_btn.disabled = true;
 		  }
 		  else {
 		  	post_btn.disabled = false;
 		  }
 		});
+
+		post_btn.addEventListener('click', (e) => {
+			textarea_btn.click()
+		})
 	</script>
 </body>
 </html>

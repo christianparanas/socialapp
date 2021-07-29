@@ -33,6 +33,7 @@
 	border: none;
 	background-color: #392c44;
 	color: white;
+	cursor: pointer;
 }
 
 .top_options .post_btn:disabled {
@@ -68,4 +69,8 @@ textarea {
 	border: none;
 	outline: 0;
 	resize: none;
+}
+
+.txtarea_btn {
+	display: none;
 }
