@@ -34,7 +34,7 @@ class Auth extends CI_Controller {
 				redirect('auth/register');
 			}
 			else {
-				$this->load->view('Auth/register');
+				$this->load->view('Auth/Register');
 			}
 		}
 	}
