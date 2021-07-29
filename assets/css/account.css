@@ -150,3 +150,14 @@
 .account__user_friends_container .friend p {
 	font-size: 12px;
 }
+
+
+.account__user_friend_seeall {
+	font-size: 14px;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+	padding: 10px;
+	border-radius: 8px;
+	background: #43394c;
+}

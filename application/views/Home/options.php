@@ -17,7 +17,7 @@
 				<a class="item" href="<?php echo site_url('account/'); ?>">
 					<i class="far fa-user"></i>
 					<div class="name">
-						<?= $this->session->username ?>
+						<?= $this->session->firstname ?> <?= $this->session->lastname ?>
 						<p>View Profile</p>
 					</div>
 				</a>

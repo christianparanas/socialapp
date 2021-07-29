@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/account.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Account.css')?>">
 	<title><?= $this->session->username ?></title>
 </head>
 <body>
@@ -57,6 +57,7 @@
 							}
 						?>
 					</div>
+					<div class="account__user_friend_seeall">See All Friends</div>
 				</div>
 			</div>
 		</div>
