@@ -21,7 +21,7 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	public function register(){
+	public function register() {
 		// if session is active redirect to homepage, if not, so be it haha
 		if($this->session->userdata() && $this->session->isLoggedIn) {
 			redirect('/');
