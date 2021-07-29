@@ -17,6 +17,10 @@
 	font-size: 23px;
 }
 
+.nav_icon_container_upper .nav_icon:nth-child(1) {
+	font-size: 15px;
+}
+
 .nav_icon_container_upper .nav_icon li:nth-child(1) {
 	margin-right: 10px;
 }

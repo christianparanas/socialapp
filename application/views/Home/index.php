@@ -12,6 +12,13 @@
 	<div class="home">
 		<?php $this->load->view('components/nav'); ?>
 
+		<div class="user_create">
+			<div class="create_post">
+				<img src="<?php echo base_url('assets/imgs/me.jpg') ?>" alt="Current user">
+				<a class="label" href="<?php echo site_url('home/create'); ?>">What's on your mind?</a>
+			</div>
+		</div>
+
 		<div class="home__main_container">
 
 			<?php 
@@ -21,7 +28,7 @@
 										<div class="item">
 											<img src="'. base_url('assets/imgs/me.jpg') .'" alt="Post author image">
 											<div class="name">'.$row->firstname.' '.$row->lastname.'
-											<div class="">'.date('M j Y g:i A', strtotime($row->updated_at)).'</div>
+												<div class="aaa">'.date('M j Y g:i A', strtotime($row->updated_at)).'</div>
 											</div>
 										</div>
 										<div class="item">

@@ -45,4 +45,13 @@ class Home extends CI_Controller {
 			redirect('auth/');
 		}
 	}
+
+	public function create() {
+		if($this->session->userdata() && $this->session->isLoggedIn) {
+			$this->load->view('Home/create');
+		}
+		else {
+			redirect('auth/');
+		}
+	}
 }
