@@ -13,7 +13,7 @@
 		<div class="register__main_container">
 
 			<div class="form_header">
-				<h2>Register</h2>
+				<h2>Register.</h2>
 			</div>
 			
 			<form action="" method="POST">
