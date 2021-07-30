@@ -49,11 +49,8 @@
 									 <hr />
 									<div class="home__post_interact">';
 
+									// string to array conversion
 									$likersIdArr = explode(',', $row->likers);
-									// $isLiked = array_search($this->session->id, $likersIdArr);
-									 // var_dump($likersIdArr);
-									 // echo $this->session->id;
-									 // echo $isLiked;
 
 									 // search current user id the likers array
 									if(in_array($this->session->id, $likersIdArr)) {
