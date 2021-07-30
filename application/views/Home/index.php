@@ -37,11 +37,19 @@
 									</div>
 									<div class="home__post_content">'.$row->caption.'</div>
 									<div class="home__post_likes">'.$row->likesCount.'</div>
-									<div class="home__post_interact">
-										.'
+									<div class="home__post_interact">';
 
-										'.
-										<div class="item"><li class="fal fa-thumbs-up"></li></div>
+									$likersIdArr = explode(',', $row->likers);
+									$isLiked = array_search($this->session->id, $likersIdArr, true);
+
+									if($isLiked === 0) {
+										echo '<div class="item" style="color: blue;"><li class="fal fa-thumbs-up"></li></div>';
+									}	
+									else {
+										echo '<div class="item" style="color: #000;"><li class="fal fa-thumbs-up"></li></div>';
+									}
+
+								echo '
 										<div class="item"><li class="fal fa-comment"></li></div>
 										<div class="item"><li class="fal fa-share"></li></div>
 									</div>

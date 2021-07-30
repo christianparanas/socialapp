@@ -28,7 +28,6 @@ class HomeModel extends CI_Model {
 
 		var_dump($query_post_result->result());
 
-
 		return $query_post_result;
 	}
 
