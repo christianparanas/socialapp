@@ -40,26 +40,38 @@ class HomeModel extends CI_Model {
 	}
 
 	public function like() {
+		// gettting this values from homepage ajax post request
 		$option = $this->input->post('option');
 		$postId = $this->input->post('postId');
 
+		// liker data and the postId
 		$data = array(
 			'postId' => $postId,
 			'likerId' => $this->session->id
 		);
 
+		// query the likers table
+		$this->db->select("*");
+		$this->db->from('likers');
+		$this->db->where('likerId', $this->session->id);
+		$query = $this->db->get();
+
 		$option_dec;
 
-		if($option == 1) {
-			$option_dec = 'likes_count-1';
-			$this->db->delete('likers', $data);
-		}
-		else {
-			$option_dec = 'likes_count+1';
+		// check if liker already liked the post or not
+		if($query->num_rows() > 0) {
+				// decrement the likes_count of the post
+        $option_dec = 'likes_count-1';
+        // delete the liker data from likers table
+				$this->db->delete('likers', $data);
+     }
+     else {
+     	$option_dec = 'likes_count+1';
+     	// insert likder data from likers table
 			$this->db->insert('likers', $data);
-		}
+     }
 
-
+     // update the post likes_count based on the condition above
 		$this->db->where('id', $postId);
 		$this->db->set('likes_count', $option_dec, FALSE);
 		$this->db->update('posts');
