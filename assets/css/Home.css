@@ -84,28 +84,39 @@
 
 
 .home__post_content {
-	margin: 10px 0;
+	margin: 10px 0 0;
+	font-size: 12px;
 }
 
 .home__post_likes {
-	margin: 10px 0 0;
-	height: 18px;
+	margin: 10px 0 10px;
+	display: flex;
 }
 
+
 .home__post_likes .likesLogo {
-	width: 15px;
-	height: 15px;
+	width: 14px;
+	height: 14px;
+	margin-right: 5px;
+}
+
+.home__post_likes .like_count {
+	font-size: 12px;
 }
 
 .home__post_interact {
 	display: flex;
 	justify-content: space-between;
-	margin: 10px 10px 0;
+	margin: 0 10px 0;
 }
 
 .home__post_interact .item {
 	padding: 10px;
 	font-size: 12px; 
+}
+
+.home__post_interact .item li {
+	margin-right: 5px;
 }
 
 
