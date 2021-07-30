@@ -87,15 +87,24 @@
 	margin: 10px 0;
 }
 
+.home__post_likes {
+	margin: 10px 0 0;
+}
+
+.home__post_likes .likesLogo {
+	width: 15px;
+	height: 15px;
+}
 
 .home__post_interact {
 	display: flex;
 	justify-content: space-between;
-	margin: 20px 10px 0;
+	margin: 10px 10px 0;
 }
 
 .home__post_interact .item {
 	padding: 10px;
+	font-size: 12px; 
 }
 
 

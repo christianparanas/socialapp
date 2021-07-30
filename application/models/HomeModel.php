@@ -11,22 +11,20 @@ class HomeModel extends CI_Model {
 											lastname, 
 											posts.id AS postId, 
 											caption, 
-											likes.id AS likesId, 
-											count AS likesCount,
+											likes_count,
 											GROUP_CONCAT(likers.likerId) AS likers, 
 											privacy, 
 											posts.created_at, 
 											posts.updated_at');
 		$this->db->from('posts');
-		$this->db->join('users', 'users.id = posts.userId', 'inner');
-		$this->db->join('likes', 'likes.postId = posts.id', 'inner');
-		$this->db->join('likers', 'likers.likesId = likes.id', 'inner');
+		$this->db->join('users', 'users.id = posts.userId');
+		$this->db->join('likers', 'likers.postId = posts.id', 'left outer');
 
 		$this->db->group_by('posts.id');
 		$this->db->order_by('posts.id', 'DESC');
 		$query_post_result = $this->db->get();
 
-		var_dump($query_post_result->result());
+		// var_dump($query_post_result->result());
 
 		return $query_post_result;
 	}
