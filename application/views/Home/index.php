@@ -50,9 +50,13 @@
 									<div class="home__post_interact">';
 
 									$likersIdArr = explode(',', $row->likers);
-									$isLiked = array_search($this->session->id, $likersIdArr, true);
+									// $isLiked = array_search($this->session->id, $likersIdArr);
+									 // var_dump($likersIdArr);
+									 // echo $this->session->id;
+									 // echo $isLiked;
 
-									if($isLiked === 0) {
+									 // search current user id the likers array
+									if(in_array($this->session->id, $likersIdArr)) {
 										echo '<div class="item" onclick="interactLike(1, '.$row->postId.')" style="color: blue;"><li class="fal fa-thumbs-up"></li>Liked</div>';
 									}	
 									else {
