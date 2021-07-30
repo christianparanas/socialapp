@@ -6,6 +6,7 @@
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home.css')?>">
+	
 	<title>Home</title>
 </head>
 <body>
@@ -45,10 +46,10 @@
 									$isLiked = array_search($this->session->id, $likersIdArr, true);
 
 									if($isLiked === 0) {
-										echo '<div class="item" style="color: blue;"><li class="fal fa-thumbs-up"></li>Liked</div>';
+										echo '<div class="item" disabled onclick="interactLike(1, '.$row->postId.')" style="color: blue;"><li class="fal fa-thumbs-up"></li>Liked</div>';
 									}	
 									else {
-										echo '<div class="item" style="color: #000;"><li class="fal fa-thumbs-up"></li>Like</div>';
+										echo '<div class="item" onclick="interactLike(2, '.$row->postId.')" style="color: #000;"><li class="fal fa-thumbs-up"></li>Like</div>';
 									}
 
 								echo '
@@ -60,5 +61,40 @@
 			?>
 		</div>
 	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		
+		function interactLike(option, postId) {
+			if(option == 1) {
+				$.ajax({
+			     url:'<?= site_url('/Home/interact_like')?>',
+			     method: 'post',
+			     data: {option: 1, postId: postId},
+			     dataType: 'json',
+			     success: function(response){
+			     	location.reload();
+			     }
+		   })
+
+				location.reload();
+			}
+			else {
+				console.log("Unlike")
+				
+				$.ajax({
+			     url:'<?= site_url('/Home/interact_like')?>',
+			     method: 'post',
+			     data: {option: 2, postId: postId},
+			     dataType: 'json',
+			     success: function(response){
+			     	location.reload();
+			     }
+		   })
+
+				location.reload();
+			}
+		}
+	</script>
 </body>
 </html>

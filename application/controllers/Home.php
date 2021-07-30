@@ -63,6 +63,12 @@ class Home extends CI_Controller {
 			redirect('auth/');
 		}
 	}
+
+	public function interact_like() {
+		echo $this->input->post('num');
+		$this->load->model('HomeModel');
+		$this->HomeModel->like();
+	}
 }
 
 // htaccess prod config

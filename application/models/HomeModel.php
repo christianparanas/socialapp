@@ -38,4 +38,30 @@ class HomeModel extends CI_Model {
 
 		return $this->db->insert('posts', $data);
 	}
+
+	public function like() {
+		$option = $this->input->post('option');
+		$postId = $this->input->post('postId');
+
+		$data = array(
+			'postId' => $postId,
+			'likerId' => $this->session->id
+		);
+
+		$option_dec;
+
+		if($option == 1) {
+			$option_dec = 'likes_count-1';
+			$this->db->delete('likers', $data);
+		}
+		else {
+			$option_dec = 'likes_count+1';
+			$this->db->insert('likers', $data);
+		}
+
+
+		$this->db->where('id', $postId);
+		$this->db->set('likes_count', $option_dec, FALSE);
+		$this->db->update('posts');
+	}
 }
