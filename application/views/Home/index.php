@@ -36,7 +36,11 @@
 										</div>
 									</div>
 									<div class="home__post_content">'.$row->caption.'</div>
+									<div class="home__post_likes">'.$row->likesCount.'</div>
 									<div class="home__post_interact">
+										.'
+
+										'.
 										<div class="item"><li class="fal fa-thumbs-up"></li></div>
 										<div class="item"><li class="fal fa-comment"></li></div>
 										<div class="item"><li class="fal fa-share"></li></div>
