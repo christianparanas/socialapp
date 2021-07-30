@@ -50,10 +50,11 @@ class HomeModel extends CI_Model {
 			'likerId' => $this->session->id
 		);
 
-		// query the likers table
+		// query the likers table if he/she like the specifiv post already
 		$this->db->select("*");
 		$this->db->from('likers');
 		$this->db->where('likerId', $this->session->id);
+		$this->db->where('postId', $postId);
 		$query = $this->db->get();
 
 		$option_dec;
