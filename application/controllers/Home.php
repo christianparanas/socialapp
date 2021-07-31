@@ -69,6 +69,14 @@ class Home extends CI_Controller {
 		$this->load->model('HomeModel');
 		$this->HomeModel->like();
 	}
+
+	public function likers($postId) {
+		$this->load->model('HomeModel');
+
+		$data['likers'] = $this->HomeModel->likers();
+
+		$this->load->view('Home/likers', $data);
+	}
 }
 
 // htaccess prod config

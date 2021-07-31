@@ -88,7 +88,11 @@
 	font-size: 12px;
 }
 
-.home__post_likes {
+.home__post_likes a {
+	cursor: pointer;
+	width: fit-content;
+	color: #000;
+	text-decoration: none;
 	margin: 10px 0 10px;
 	display: flex;
 }
@@ -111,6 +115,7 @@
 }
 
 .home__post_interact .item {
+	cursor: pointer;
 	padding: 10px;
 	font-size: 12px; 
 }

@@ -77,4 +77,19 @@ class HomeModel extends CI_Model {
 		$this->db->set('likes_count', $option_dec, FALSE);
 		$this->db->update('posts');
 	}
+
+	// load post liker/s
+	public function likers() {
+		$postId = $this->uri->segment(3);
+
+		// query the likers table
+		$this->db->select('users.Id, users.firstname, users.lastname');
+		$this->db->from('likers');
+		$this->db->join('users', 'users.id = likers.likerId', 'left outer');
+		$this->db->where('postId', $postId);
+
+		$query = $this->db->get();
+		return $query->result();
+		// echo json_encode($query->result());
+	}
 }
