@@ -56,10 +56,10 @@
 
 									 // search current user id the likers array
 									if(in_array($this->session->id, $likersIdArr)) {
-										echo '<div class="item" onclick="interactLike(1, '.$row->postId.')" style="color: blue;"><li class="fal fa-thumbs-up"></li>Liked</div>';
+										echo '<div class="item" onclick="interactLike('.$row->postId.')" style="color: blue;"><li class="fal fa-thumbs-up"></li>Liked</div>';
 									}	
 									else {
-										echo '<div class="item" onclick="interactLike(2, '.$row->postId.')" style="color: #000;"><li class="fal fa-thumbs-up"></li>Like</div>';
+										echo '<div class="item" onclick="interactLike('.$row->postId.')" style="color: #000;"><li class="fal fa-thumbs-up"></li>Like</div>';
 									}
 
 								echo '
@@ -75,34 +75,19 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		
-		function interactLike(option, postId) {
-			if(option == 1) {
-				$.ajax({
-			     url:'<?= site_url('/Home/interact_like')?>',
-			     method: 'post',
-			     data: {option: 1, postId: postId},
-			     dataType: 'json',
-			     success: function(response){
-			     	location.reload();
-			     }
-		   })
+		// like interaction
+		async function interactLike(postId) {
+			$.ajax({
+		     url:'<?= site_url('/Home/interact_like')?>',
+		     method: 'post',
+		     data: {option: 1, postId: postId},
+		     dataType: 'json',
+		     success: function(response){
+		     	location.reload();
+		     }
+	   })
 
-				location.reload();
-			}
-			else {
-				
-				$.ajax({
-			     url:'<?= site_url('/Home/interact_like')?>',
-			     method: 'post',
-			     data: {option: 2, postId: postId},
-			     dataType: 'json',
-			     success: function(response){
-			     	location.reload();
-			     }
-		   })
-
-				location.reload();
-			}
+			location.reload();
 		}
 	</script>
 </body>

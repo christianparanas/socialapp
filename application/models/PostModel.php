@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HomeModel extends CI_Model {
+class PostModel extends CI_Model {
 	
 	public function fetch_all_posts() {
 		$this->db->distinct();
@@ -76,6 +76,11 @@ class HomeModel extends CI_Model {
 		$this->db->where('id', $postId);
 		$this->db->set('likes_count', $option_dec, FALSE);
 		$this->db->update('posts');
+	}
+
+	// comment
+	public function comment() {
+		
 	}
 
 	// load post liker/s

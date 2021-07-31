@@ -4,13 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+	 public function __construct()
+  {
+      parent::__construct();
+      $this->load->model('PostModel');
+  }
+
 
 	// home
 	public function index() {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
-			$this->load->model('HomeModel');
 			
-			$data['posts'] = $this->HomeModel->fetch_all_posts();
+			$data['posts'] = $this->PostModel->fetch_all_posts();
 
 			$this->load->view('Home/index', $data);
 		}
@@ -46,13 +51,13 @@ class Home extends CI_Controller {
 		}
 	}
 
+	// create post
 	public function create() {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
 
 			if($this->input->post('submit')) {
-				$this->load->model('HomeModel');
 
-				$post_result = $this->HomeModel->create_post();
+				$post_result = $this->PostModel->create_post();
 				redirect('/');
 			}
 			else {
@@ -64,18 +69,26 @@ class Home extends CI_Controller {
 		}
 	}
 
+	// do like or unlike to a post
 	public function interact_like() {
 		echo $this->input->post('num');
-		$this->load->model('HomeModel');
-		$this->HomeModel->like();
+		$this->PostModel->like();
 	}
 
+	// do a comment or edit or delete your comment to a post
+	public function interact_comment() {
+		
+	}
+
+	// load likers
 	public function likers($postId) {
-		$this->load->model('HomeModel');
-
-		$data['likers'] = $this->HomeModel->likers();
-
-		$this->load->view('Home/likers', $data);
+		if($this->session->userdata() && $this->session->isLoggedIn) {
+			$data['likers'] = $this->PostModel->likers();
+			$this->load->view('Home/likers', $data);
+		}
+		else {
+			redirect('auth/');
+		}
 	}
 }
 
