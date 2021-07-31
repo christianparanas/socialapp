@@ -17,7 +17,7 @@ class Home extends CI_Controller {
 			
 			$data['posts'] = $this->PostModel->fetch_all_posts();
 
-			$this->load->view('Home/index', $data);
+			$this->load->view('home/index', $data);
 		}
 		else {
 			redirect('auth/');
@@ -26,7 +26,7 @@ class Home extends CI_Controller {
 
 	public function notifications() {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
-			$this->load->view('Home/notifications');
+			$this->load->view('home/notifications');
 		}
 		else {
 			redirect('auth/');
@@ -35,7 +35,7 @@ class Home extends CI_Controller {
 
 	public function friends() {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
-			$this->load->view('Home/friends');
+			$this->load->view('home/friends');
 		}
 		else {
 			redirect('auth/');
@@ -44,7 +44,7 @@ class Home extends CI_Controller {
 
 	public function options() {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
-			$this->load->view('Home/options');
+			$this->load->view('home/options');
 		}
 		else {
 			redirect('auth/');
@@ -61,7 +61,7 @@ class Home extends CI_Controller {
 				redirect('/');
 			}
 			else {
-				$this->load->view('Home/create');
+				$this->load->view('home/create');
 			}
 		}
 		else {
@@ -76,15 +76,25 @@ class Home extends CI_Controller {
 	}
 
 	// do a comment or edit or delete your comment to a post
-	public function interact_comment() {
-		
+	public function comments() {
+		$postId = $this->uri->segment(3);
+
+		if($this->input->post('comment_btn')) {
+			$this->PostModel->create_comment();
+
+			redirect('home/comments/'. $postId .'');
+		}
+		else {
+			$data['comments'] = $this->PostModel->load_comments();
+			$this->load->view('home/comments', $data);
+		}
 	}
 
 	// load likers
 	public function likers($postId) {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
 			$data['likers'] = $this->PostModel->likers();
-			$this->load->view('Home/likers', $data);
+			$this->load->view('home/likers', $data);
 		}
 		else {
 			redirect('auth/');

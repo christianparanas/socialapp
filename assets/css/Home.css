@@ -84,7 +84,7 @@
 
 
 .home__post_content {
-	margin: 10px 0 0;
+	margin: 10px 0;
 	font-size: 12px;
 }
 
@@ -117,7 +117,9 @@
 .home__post_interact .item {
 	cursor: pointer;
 	padding: 10px;
-	font-size: 12px; 
+	font-size: 12px;
+	color: #000;
+	text-decoration: none;
 }
 
 .home__post_interact .item li {

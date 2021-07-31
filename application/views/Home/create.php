@@ -11,7 +11,7 @@
 	<div class="home__create">
 		<div class="top_options">
 			<div class="item1">
-				<a class="back_btn" href="<?php echo site_url('home/index'); ?>">
+				<a class="back_btn" href="<?php echo site_url('/'); ?>">
 					<i class="far fa-arrow-left"></i>
 				</a>
 				<p>Create Post</p>

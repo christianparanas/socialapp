@@ -10,7 +10,7 @@
 <body>
 	<div class="likers_container">
 		<div class="head">
-			<a class="back_btn" href="<?php echo site_url('home/'); ?>">
+			<a class="back_btn" href="<?php echo site_url('/'); ?>">
 				<i class="fal fa-arrow-left"></i>
 			</a>
 			<h3>Likers</h3>

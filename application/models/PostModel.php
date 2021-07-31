@@ -78,9 +78,31 @@ class PostModel extends CI_Model {
 		$this->db->update('posts');
 	}
 
-	// comment
-	public function comment() {
-		
+	// create comment
+	public function create_comment() {
+		$postId = $this->uri->segment(3);
+
+		$data = array(
+			'comment' => $this->input->post('comment'),
+			'postId' => $postId,
+			'userId' => $this->session->id
+		);
+
+		$this->db->insert('comments', $data);
+	}
+
+	// load comments
+	public function load_comments() {
+		$postId = $this->uri->segment(3);
+
+		$this->db->select('userId, comments.id AS commentId, users.firstname, users.lastname, comment, comments.updated_at');
+		$this->db->from('comments');
+		$this->db->join('users', 'users.id = comments.userId', 'left outer');
+		$this->db->where('postId', $postId);
+		$this->db->order_by('comments.updated_at', 'DESC');
+
+		$query = $this->db->get();
+		return $query->result();
 	}
 
 	// load post liker/s
@@ -92,6 +114,7 @@ class PostModel extends CI_Model {
 		$this->db->from('likers');
 		$this->db->join('users', 'users.id = likers.likerId', 'left outer');
 		$this->db->where('postId', $postId);
+		$this->db->order_by('likers.created_at', 'DESC');
 
 		$query = $this->db->get();
 		return $query->result();

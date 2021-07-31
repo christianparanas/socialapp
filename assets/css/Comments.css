@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.comments_container .head {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #392c44;
+	color: #fff;
+}
+
+.comments_container .head a {
+	color: #fff;
+}
+
+.comments_wrap {
+	position: relative;
+}
+
+
+.comments_content {
+	padding: 20px 20px 160px;
+	display: grid;
+	grid-gap: 30px;
+}
+
+.comments_wrap form {
+	border-top: 1px solid #e3e3e3;
+	padding: 10px 20px;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	background: white;
+}
+
+.comments_wrap form input {
+	width: 100%;
+	outline: 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 15px;
+  padding: 14px;
+  border: 2px solid #f3f4f5;
+  border-radius: 12px;
+}
+
+.comments_wrap form input:nth-child(1) {
+	margin-bottom: 10px;
+}
+
+.comments_wrap form input:nth-child(2) {
+	background: #392c44;
+	color: #fff;
+}
+
+.specific_comment {
+	display: flex;
+	grid-gap: 5px;
+}
+
+.specific_comment img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.specific_comment_wrap {
+	box-shadow: 0 14px 30px 0 rgb(43 80 237 / 20%);
+	padding: 10px;
+	border-radius: 8px;
+	position: relative;
+
+}
+
+.specific_comment_wrap .name {
+	font-size: 15px;
+}
+
+.specific_comment_wrap .comment {
+	font-size: 12px;
+	width: 100%;
+	word-break: break-all;
+	margin: 5px 0;
+	min-width: 125px;
+}
+
+.specific_comment_wrap .date {
+	font-size: 10px;
+	position: absolute;
+	bottom: -15px;
+}
