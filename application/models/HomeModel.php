@@ -83,7 +83,7 @@ class HomeModel extends CI_Model {
 		$postId = $this->uri->segment(3);
 
 		// query the likers table
-		$this->db->select('users.Id, users.firstname, users.lastname');
+		$this->db->select('users.id, users.firstname, users.lastname');
 		$this->db->from('likers');
 		$this->db->join('users', 'users.id = likers.likerId', 'left outer');
 		$this->db->where('postId', $postId);

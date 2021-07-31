@@ -20,11 +20,18 @@
 			<?php 
 				foreach($likers as $liker) {
 					echo '<div class="item">
-									<img class="liker_img" src="'. base_url('assets/imgs/me.jpg') .'" alt="liker img">
-									<div class="liker_name">'.  ucfirst($liker->firstname) .' '.  ucfirst($liker->lastname) .'</div>
-								</div>';
-				}
+									<img class="liker_img" src="'. base_url('assets/imgs/me.jpg') .'" alt="liker img">';
 
+						// check if u r on the likers list and if true, output "You" instead of the liker name
+						if($liker->id == $this->session->id) {
+							echo '<div class="liker_name">You</div>
+								</div>';
+						}
+						else {
+							echo '<div class="liker_name">'.  ucfirst($liker->firstname) .' '.  ucfirst($liker->lastname) .'</div>
+								</div>';
+						}
+				}
 			?>
 		</div>
 	</div>
