@@ -79,14 +79,19 @@ class Home extends CI_Controller {
 	public function comments() {
 		$postId = $this->uri->segment(3);
 
-		if($this->input->post('comment_btn')) {
-			$this->PostModel->create_comment();
+		if($this->session->userdata() && $this->session->isLoggedIn) {
+			if($this->input->post('comment_btn')) {
+				$this->PostModel->create_comment();
 
-			redirect('home/comments/'. $postId .'');
+				redirect('home/comments/'. $postId .'');
+			}
+			else {
+				$data['comments'] = $this->PostModel->load_comments();
+				$this->load->view('home/comments', $data);
+			}
 		}
 		else {
-			$data['comments'] = $this->PostModel->load_comments();
-			$this->load->view('home/comments', $data);
+			redirect('auth/');
 		}
 	}
 
