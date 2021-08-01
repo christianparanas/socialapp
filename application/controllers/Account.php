@@ -13,4 +13,13 @@ class Account extends CI_Controller {
 			redirect('auth/');
 		}
 	}
+
+	public function user($id) {
+		if($this->session->userdata() && $this->session->isLoggedIn) {
+			$this->load->view('Account/user');
+		}
+		else {
+			redirect('auth/');
+		}
+	}
 }

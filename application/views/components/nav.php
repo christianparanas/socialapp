@@ -15,10 +15,10 @@
 			<a href="<?php echo site_url('/friends'); ?>">
 				<div class="nav_icon"><li class="fad fa-user-friends"></i></div>
 			</a>
-			<a href="<?php echo site_url('home/notifications'); ?>">
+			<a href="<?php echo site_url('/notifications'); ?>">
 				<div class="nav_icon"><li class="fad fa-bell"></li></div>
 			</a>
-			<a href="<?php echo site_url('home/options'); ?>">
+			<a href="<?php echo site_url('/options'); ?>">
 				<div class="nav_icon"><li class="fad fa-bars"></i></div>
 			</a>
 		</div>

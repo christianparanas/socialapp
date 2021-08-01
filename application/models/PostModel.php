@@ -7,6 +7,7 @@ class PostModel extends CI_Model {
 	public function fetch_all_posts() {
 		$this->db->distinct();
 		$this->db->select('posts.userId, 
+											username,
 											firstname, 
 											lastname, 
 											posts.id AS postId, 

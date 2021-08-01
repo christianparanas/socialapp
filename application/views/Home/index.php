@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Home.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home.css')?>">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<title>Home</title>
 </head>
@@ -16,7 +16,7 @@
 		<div class="user_create">
 			<div class="create_post">
 				<img src="<?php echo base_url('assets/imgs/me.jpg') ?>" alt="Current user">
-				<a class="label" href="<?php echo site_url('home/create'); ?>">What's on your mind?</a>
+				<a class="label" href="<?php echo site_url('/create'); ?>">What's on your mind?</a>
 			</div>
 		</div>
 
@@ -32,19 +32,43 @@
 
 			<?php
 
+				$navTo;
+
+				if($row->userId == $this->session->id) {
+					$navTo = "/";
+				}
+				else {
+					$navTo = '/'.$row->username;
+				}
+
 				  echo '<div class="home__post_container">
 									<div class="home__post_header">
-										<div class="item">
+										<a href="'. base_url('account'. $navTo .'') .'" class="item">
 											<img src="'. base_url('assets/imgs/me.jpg') .'" alt="Post author image">
-											<div class="name">'. ucfirst($row->firstname) .' '. ucfirst($row->lastname) .'
-											<div class="aaa">';
+											<div class="name">'. ucfirst($row->firstname) .' '. ucfirst($row->lastname).'
+											<div class="date_privacy">
+											<div class="date">';
 			?>	
-										<script>
-											document.write(moment_date)
-										</script>
-			<?php	echo'</div>
-									</div>
+												<script>
+													document.write(moment_date)
+												</script>
+			<?php	echo '		</div>
+											<div class="privacy_icon">';
+
+											if($row->privacy == 'public') {
+												echo '<i class="fal fa-globe-asia"></i>';
+											}
+											elseif($row->privacy == 'friends') {
+												echo '<i class="fal fa-user-friends"></i>';
+											}
+											elseif($row->privacy == 'onlyme') {
+												echo '<i class="fal fa-lock"></i>';
+											}
+
+						echo '    </div>
+											</div>
 										</div>
+										</a>
 										<div class="item">
 											<i class="fal fa-ellipsis-h-alt"></i>
 										</div>

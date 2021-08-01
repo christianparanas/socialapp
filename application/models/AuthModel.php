@@ -42,6 +42,7 @@ class AuthModel extends CI_Model {
 
 	public function register() {
 		$data = array(
+			'username' => $this->input->post("reg_firstname").''.$this->input->post("reg_lastname").''.rand(1, 1000),
 			'firstname' => $this->input->post('reg_firstname'),
 			'lastname' => $this->input->post('reg_lastname'),
 			'email' => $this->input->post('reg_email'),
