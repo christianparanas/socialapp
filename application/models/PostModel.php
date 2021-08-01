@@ -6,12 +6,13 @@ class PostModel extends CI_Model {
 	
 	public function fetch_all_posts() {
 		$this->db->distinct();
-		$this->db->select('userId, 
+		$this->db->select('posts.userId, 
 											firstname, 
 											lastname, 
 											posts.id AS postId, 
 											caption, 
 											likes_count,
+											comments_count,
 											GROUP_CONCAT(likers.likerId) AS likers, 
 											privacy, 
 											posts.created_at, 
@@ -41,7 +42,6 @@ class PostModel extends CI_Model {
 
 	public function like() {
 		// gettting this values from homepage ajax post request
-		$option = $this->input->post('option');
 		$postId = $this->input->post('postId');
 
 		// liker data and the postId
@@ -89,6 +89,11 @@ class PostModel extends CI_Model {
 		);
 
 		$this->db->insert('comments', $data);
+
+		// update comment count
+		$this->db->where('id', $postId);
+		$this->db->set('comments_count', 'comments_count+1', FALSE);
+		$this->db->update('posts');
 	}
 
 	// load comments

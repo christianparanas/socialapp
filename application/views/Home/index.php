@@ -6,7 +6,7 @@
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Home.css')?>">
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<title>Home</title>
 </head>
 <body>
@@ -24,13 +24,30 @@
 
 			<?php 
 			  foreach ($posts->result() as $row) {
+			  	$escapedUrl = htmlspecialchars(json_encode($row->created_at));
+
+
+
+			?>
+			<script>
+				var row_date = "<?php echo $row->created_at; ?>"
+				var moment_date = moment(row_date).fromNow()
+			</script>
+
+			<?php
+
 				  echo '<div class="home__post_container">
 									<div class="home__post_header">
 										<div class="item">
 											<img src="'. base_url('assets/imgs/me.jpg') .'" alt="Post author image">
 											<div class="name">'.$row->firstname.' '.$row->lastname.'
-												<div class="aaa">'.date('M j Y g:i A', strtotime($row->updated_at)).'</div>
-											</div>
+											<div class="aaa">';
+			?>	
+										<script>
+											document.write(moment_date)
+										</script>
+			<?php	echo'</div>
+									</div>
 										</div>
 										<div class="item">
 											<i class="fal fa-ellipsis-h-alt"></i>
@@ -62,8 +79,14 @@
 										echo '<div class="item" onclick="interactLike('.$row->postId.')" style="color: #000;"><li class="fal fa-thumbs-up"></li>Like</div>';
 									}
 
+									if($row->comments_count > 0) {
+										echo '<a class="item" href="'. base_url('home/comments/'. $row->postId .'').'"><li class="fal fa-comment"></li>'. $row->comments_count .'</a>';
+									}
+									else {
+										echo '<a class="item" href="'. base_url('home/comments/'. $row->postId .'').'"><li class="fal fa-comment"></li>Comment</a>';
+									}
+
 								echo '
-										<a class="item" href="'. base_url('home/comments/'. $row->postId .'').'"><li class="fal fa-comment"></li>Comment</a>
 										<div class="item"><li class="fal fa-share"></li>Share</div>
 									</div>
 								</div>';
