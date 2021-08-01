@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home_index.css')?>">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<title>Home</title>
 </head>
