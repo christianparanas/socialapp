@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Comments.css')?>">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<title>Comments</title>
 </head>
 <body>
@@ -25,12 +26,23 @@
 					}
 					else {
 						foreach($comments as $comment) {
-							echo '<div class="specific_comment">
+				?>
+							<script>
+								var row_date = "<?php echo $comment->updated_at; ?>"
+								var moment_date = moment(row_date).fromNow()
+							</script>
+				<?php	echo '<div class="specific_comment">
 											<img src="'. base_url('assets/imgs/me.jpg') .'" alt="Commented user img">
 											<div class="specific_comment_wrap">
 												<div class="name">'. ucfirst($comment->firstname).' '. ucfirst($comment->lastname) .'</div>
 												<div class="comment">'. $comment->comment .'</div>
-												<div class="date">'. date('M j Y g:i A', strtotime($comment->updated_at)) .'</div>
+												<div class="date">';
+				?>								
+											<script>
+												document.write(moment_date)
+											</script>
+				<?php echo '
+												</div>
 											</div>
 										</div>';
 						}

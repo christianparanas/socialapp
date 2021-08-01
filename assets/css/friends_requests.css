@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.friend_requests_container .head {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #392c44;
+	color: #fff;
+}
+
+.friend_requests_container .head a {
+	color: #fff;
+}

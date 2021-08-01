@@ -12,7 +12,7 @@
 			<a href="<?php echo site_url('/'); ?>">
 				<div class="nav_icon"><li class="fad fa-home-alt"></li></div>
 			</a>
-			<a href="<?php echo site_url('home/friends'); ?>">
+			<a href="<?php echo site_url('/friends'); ?>">
 				<div class="nav_icon"><li class="fad fa-user-friends"></i></div>
 			</a>
 			<a href="<?php echo site_url('home/notifications'); ?>">
