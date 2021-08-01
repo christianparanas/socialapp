@@ -35,7 +35,9 @@ class PostModel extends CI_Model {
 		$data = array(
 			'userId' => $this->session->id,
 			'caption' => $this->input->post('text_input'),
-			'privacy' => $this->input->post('privacy_input')
+			'privacy' => $this->input->post('privacy_input'),
+			'created_at' => date('Y/m/d H:i:s'),
+			'updated_at' => date('Y/m/d H:i:s')
 		);
 
 		return $this->db->insert('posts', $data);
@@ -76,6 +78,7 @@ class PostModel extends CI_Model {
      // update the post likes_count based on the condition above
 		$this->db->where('id', $postId);
 		$this->db->set('likes_count', $option_dec, FALSE);
+		$this->db->set('updated_at', ''.date('Y/m/d H:i:s').'');
 		$this->db->update('posts');
 	}
 
@@ -86,7 +89,9 @@ class PostModel extends CI_Model {
 		$data = array(
 			'comment' => $this->input->post('comment'),
 			'postId' => $postId,
-			'userId' => $this->session->id
+			'userId' => $this->session->id,
+			'created_at' => date('Y/m/d H:i:s'),
+			'updated_at' => date('Y/m/d H:i:s')
 		);
 
 		$this->db->insert('comments', $data);
@@ -94,6 +99,7 @@ class PostModel extends CI_Model {
 		// update comment count
 		$this->db->where('id', $postId);
 		$this->db->set('comments_count', 'comments_count+1', FALSE);
+		$this->db->set('updated_at', ''.date('Y/m/d H:i:s').'');
 		$this->db->update('posts');
 	}
 

@@ -11,7 +11,6 @@ class Post extends CI_Controller {
 
     // do like or unlike to a post
   public function interact_like() {
-    echo $this->input->post('num');
     $this->PostModel->like();
   }
 

@@ -46,7 +46,9 @@ class AuthModel extends CI_Model {
 			'firstname' => $this->input->post('reg_firstname'),
 			'lastname' => $this->input->post('reg_lastname'),
 			'email' => $this->input->post('reg_email'),
-			'password' => password_hash($this->input->post('reg_password'), PASSWORD_BCRYPT)
+			'password' => password_hash($this->input->post('reg_password'), PASSWORD_BCRYPT),
+			'created_at' => date('Y/m/d H:i:s'),
+			'updated_at' => date('Y/m/d H:i:s')
 		);
 
 		return $this->db->insert('users', $data);
