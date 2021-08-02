@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/friends.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Friends.css')?>">
 	<title>Friends</title>
 </head>
 <body>

@@ -8,6 +8,7 @@ class FriendModel extends CI_Model {
 		$this->db->select("id, firstname, lastname");
 		$this->db->from("users");
 		$this->db->where("id !=", $this->session->id);
+		$this->db->order_by("users.created_at", 'DESC');
 		$query = $this->db->get();
 
 		return $query->result();
