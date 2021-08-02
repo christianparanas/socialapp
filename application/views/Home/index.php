@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home_index.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home.css')?>">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<title>Home</title>
 </head>
@@ -15,7 +15,7 @@
 
 		<div class="user_create">
 			<div class="create_post">
-				<img src="<?php echo base_url('content/dp/'. trim($this->session->profile_pic_url, "''").'') ?>" alt="Current user">
+				<a class="labelone" href="<?php echo site_url('account'); ?>"><img src="<?php echo base_url('content/dp/'. trim($this->session->profile_pic_url, "''").'') ?>" alt="Current user"></a>
 				<a class="label" href="<?php echo site_url('/create'); ?>">What's on your mind?</a>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 				}
 				else {
 					$navTo = '/'.$row->username;
-				}
+				}	
 
 				  echo '<div class="home__post_container">
 									<div class="home__post_header">

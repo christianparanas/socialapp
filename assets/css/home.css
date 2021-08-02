@@ -32,7 +32,7 @@
 	border-radius: 50%;
 }
 
-.user_create .create_post a {
+.user_create .create_post .label {
 	border: 1px solid #392c44;
 	padding: 10px 15px;
 	border-radius: 20px;
@@ -40,6 +40,11 @@
 	width: 100%;
 	text-decoration: none;
 	color: #000;
+}
+
+.user_create .create_post .labelone {
+	display: grid;
+	align-items: center;
 }
 
 

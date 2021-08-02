@@ -31,8 +31,16 @@
 								var row_date = "<?php echo $comment->updated_at; ?>"
 								var moment_date = moment(row_date).fromNow()
 							</script>
-				<?php	echo '<div class="specific_comment">
-											<img src="'. base_url('content/dp/'. trim($comment->profile_pic_url, "''").'') .'" alt="Commented user img">
+				<?php	
+							$navTo;
+							if($comment->userId == $this->session->id) {
+								$navTo = "/";
+							}else {
+								$navTo = '/'.$comment->username;
+							}
+							echo '<div class="specific_comment">
+											<a href="'. base_url('account'. $navTo .'') .'">
+											<img src="'. base_url('content/dp/'. trim($comment->profile_pic_url, "''").'') .'" alt="img"></a>
 											<div class="specific_comment_wrap">
 												<div class="name">'. ucfirst($comment->firstname).' '. ucfirst($comment->lastname) .'</div>
 												<div class="comment">'. $comment->comment .'</div>

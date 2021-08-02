@@ -19,17 +19,24 @@
 		<div class="likers_wrap">
 			<?php 
 				foreach($likers as $liker) {
-					echo '<div class="item">
+				$navTo;
+				if($liker->id == $this->session->id) {
+					$navTo = "/";
+				}
+				else {
+					$navTo = '/'.$liker->username;
+				}
+					echo '<a class="item" href="'. base_url('account'. $navTo .'') .'">
 									<img class="liker_img" src="'. base_url('content/dp/'.trim($liker->profile_pic_url, "''").'') .'" alt="liker img">';
 
 						// check if u r on the likers list and if true, output "You" instead of the liker name
 						if($liker->id == $this->session->id) {
 							echo '<div class="liker_name">You</div>
-								</div>';
+								</a>';
 						}
 						else {
 							echo '<div class="liker_name">'.  ucfirst($liker->firstname) .' '.  ucfirst($liker->lastname) .'</div>
-								</div>';
+								</a>';
 						}
 				}
 			?>
