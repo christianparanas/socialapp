@@ -15,7 +15,7 @@
 
 		<div class="user_create">
 			<div class="create_post">
-				<img src="<?php echo base_url('content/dp/'. $this->session->profile_pic_url.'') ?>" alt="Current user">
+				<img src="<?php echo base_url('content/dp/'. trim($this->session->profile_pic_url, '‘’').'') ?>" alt="Current user">
 				<a class="label" href="<?php echo site_url('/create'); ?>">What's on your mind?</a>
 			</div>
 		</div>
@@ -44,7 +44,7 @@
 				  echo '<div class="home__post_container">
 									<div class="home__post_header">
 										<a href="'. base_url('account'. $navTo .'') .'" class="item">
-											<img src="'. base_url('content/dp/'. $row->profile_pic_url.'') .'" alt="Post author image">
+											<img src="'. base_url('content/dp/'. trim($row->profile_pic_url, '‘’').'') .'" alt="Post author image">
 											<div class="name">'. ucfirst($row->firstname) .' '. ucfirst($row->lastname).'
 											<div class="date_privacy">
 											<div class="date">';
