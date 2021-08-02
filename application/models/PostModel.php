@@ -20,7 +20,7 @@ class PostModel extends CI_Model {
 											posts.created_at, 
 											posts.updated_at');
 		$this->db->from('posts');
-		$this->db->join('users', 'users.id = posts.userId');
+		$this->db->join('users', 'users.id = posts.userId', 'left outer');
 		$this->db->join('likers', 'likers.postId = posts.id', 'left outer');
 
 		$this->db->group_by('posts.id');
