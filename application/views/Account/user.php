@@ -23,7 +23,7 @@
 						<img src="<?php echo base_url('assets/imgs/undercover.png')?>" alt="User Cover Photo">
 					</div>
 					<div class="account__profile_photo">
-						<img src="<?php echo base_url('content/dp/'. trim($userDetails['0']->profile_pic_url, '‘’').'')?>" alt="User Profile Photo">
+						<img src="<?php echo base_url('content/dp/'. trim($userDetails['0']->profile_pic_url, "''").'')?>" alt="User Profile Photo">
 				</div>
 
 				<div class="account__user_detail">

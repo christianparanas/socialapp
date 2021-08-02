@@ -20,7 +20,7 @@
 			<?php 
 				foreach($likers as $liker) {
 					echo '<div class="item">
-									<img class="liker_img" src="'. base_url('assets/imgs/me.jpg') .'" alt="liker img">';
+									<img class="liker_img" src="'. base_url('content/dp/'.trim($liker->profile_pic_url, "''").'') .'" alt="liker img">';
 
 						// check if u r on the likers list and if true, output "You" instead of the liker name
 						if($liker->id == $this->session->id) {

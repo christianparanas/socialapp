@@ -39,7 +39,7 @@
 						echo '<h4>People you may know</h4>';
 						foreach($you_may_know_users as $you_may_know_user) {
 							echo '<div class="you_know_item">
-											<img src="'. base_url('assets/imgs/me.jpg') .'" alt="user">
+											<img src="'. base_url('content/dp/'.trim($you_may_know_user->profile_pic_url, "''").'') .'" alt="user">
 											<div class="you_know_item_content">
 												<div class="name">'. ucfirst($you_may_know_user->firstname) .' '. ucfirst($you_may_know_user->lastname) .'</div>
 												<div class="you_know_op">

@@ -15,7 +15,7 @@
 
 		<div class="user_create">
 			<div class="create_post">
-				<img src="<?php echo base_url('content/dp/'. trim($this->session->profile_pic_url, '‘’').'') ?>" alt="Current user">
+				<img src="<?php echo base_url('content/dp/'. trim($this->session->profile_pic_url, "''").'') ?>" alt="Current user">
 				<a class="label" href="<?php echo site_url('/create'); ?>">What's on your mind?</a>
 			</div>
 		</div>

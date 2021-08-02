@@ -21,7 +21,7 @@
 
 		<div class="input_container">
 			<div class="input_header">
-				<img src="<?php echo base_url('content/dp/'. trim($this->session->profile_pic_url, '‘’').'') ?>" alt="Create Post Autho Image">
+				<img src="<?php echo base_url('content/dp/'. trim($this->session->profile_pic_url, "''").'') ?>" alt="Create Post Autho Image">
 				<div class="name">
 					<?= $this->session->firstname ?> <?= $this->session->lastname ?>
 					<select name="privacy" id="privacy">

@@ -23,7 +23,7 @@
 						<img src="<?php echo base_url('assets/imgs/undercover.png')?>" alt="User Cover Photo">
 					</div>
 					<div class="account__profile_photo">
-						<img src="<?php echo base_url('content/dp/'. trim($userDetails['0']->profile_pic_url, '‘’')).'')?>" alt="User Profile Pic">
+						<img src="<?php echo base_url('content/dp/'. trim($userDetails['0']->profile_pic_url, "''")).'')?>" alt="User Profile Pic">
 						<div onclick="openUploadwindow()" class="change_dp_btn"><i class="fal fa-camera"></i>
 							<form method="post" action="<?=base_url('Account/store')?>" enctype="multipart/form-data">
                 <input type="file" id="profile_image" name="profile_image" size="33" />
