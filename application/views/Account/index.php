@@ -5,14 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/account.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Acount.css')?>">
 	<title><?= $this->session->username ?></title>
 </head>
 <body>
 	<div class="account__main_container">
 		<div class="account__header">
 			<div class="account__top_options">
-				<a class="back_btn" href="<?php echo $_SERVER['HTTP_REFERER'] ?>">
+				<a class="back_btn" href="<?php echo site_url('/'); ?>">
 					<i class="far fa-arrow-left"></i>
 				</a>
 			</div>
@@ -23,13 +23,20 @@
 						<img src="<?php echo base_url('assets/imgs/undercover.png')?>" alt="User Cover Photo">
 					</div>
 					<div class="account__profile_photo">
-						<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="User Profile Photo">
+						<img src="<?php echo base_url('content/dp/'.$userDetails['0']->profile_pic_url.'')?>" alt="User Profile Pic">
+						<div onclick="openUploadwindow()" class="change_dp_btn"><i class="fal fa-camera"></i>
+							<form method="post" action="<?=base_url('Account/store')?>" enctype="multipart/form-data">
+                <input type="file" id="profile_image" name="profile_image" size="33" />
+                <input type="submit" class="dp_upload_submit" value="Upload Image" />
+            </form>
+						</div>
+					</div>
 					</div>
 				</div>
 
 				<div class="account__user_detail">
 					<div class="account__username">
-						<?= $this->session->firstname ?> <?= $this->session->lastname ?>
+						<?= $userDetails['0']->firstname ?> <?= $userDetails['0']->lastname ?>
 					</div>
 					<div class="account__user_detail_option">
 						<div class="item"><i class="fad fa-plus-circle"></i> Add to Story</div>
@@ -62,5 +69,18 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		const dp_upload_submit_btn = document.querySelector('.dp_upload_submit')
+		const dp_upload_input = document.getElementById('profile_image')
+
+		function openUploadwindow() {
+			dp_upload_input.click()
+		}
+
+		dp_upload_input.addEventListener('change', (event) => {
+		  dp_upload_submit_btn.click()
+		});
+	</script>
 </body>
 </html>

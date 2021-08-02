@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/account.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/User.css')?>">
 	<title><?= $this->session->username ?></title>
 </head>
 <body>
@@ -24,12 +24,11 @@
 					</div>
 					<div class="account__profile_photo">
 						<img src="<?php echo base_url('assets/imgs/me.jpg')?>" alt="User Profile Photo">
-					</div>
 				</div>
 
 				<div class="account__user_detail">
 					<div class="account__username">
-						<?= $this->session->firstname ?> <?= $this->session->lastname ?>
+						<?= $userDetails['0']->firstname ?> <?= $userDetails['0']->lastname ?>
 					</div>
 					<div class="account__user_detail_option">
 						<div class="item"><i class="fad fa-plus-circle"></i> Add to Story</div>

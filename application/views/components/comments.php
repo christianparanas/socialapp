@@ -32,7 +32,7 @@
 								var moment_date = moment(row_date).fromNow()
 							</script>
 				<?php	echo '<div class="specific_comment">
-											<img src="'. base_url('assets/imgs/me.jpg') .'" alt="Commented user img">
+											<img src="'. base_url('content/dp/'. $this->session->profile_pic_url.'') .'" alt="Commented user img">
 											<div class="specific_comment_wrap">
 												<div class="name">'. ucfirst($comment->firstname).' '. ucfirst($comment->lastname) .'</div>
 												<div class="comment">'. $comment->comment .'</div>

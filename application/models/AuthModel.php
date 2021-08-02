@@ -20,6 +20,7 @@ class AuthModel extends CI_Model {
 						'id' => $result->id,
 		        'firstname' => $result->firstname,
 		        'lastname' => $result->lastname,
+		        'profile_pic_url' => $result->profile_pic_url,
 		        'email'     => $result->email,
 		        'isLoggedIn' => TRUE
 					);
@@ -55,6 +56,6 @@ class AuthModel extends CI_Model {
 	}
 
 	public function logout() {
-		$this->session->unset_userdata(array('id', 'lastname', 'firstname', 'email', 'isLoggedIn'));
+		$this->session->unset_userdata(array('id', 'lastname', 'firstname', 'profile_pic_url', 'email', 'isLoggedIn'));
 	}
 }
