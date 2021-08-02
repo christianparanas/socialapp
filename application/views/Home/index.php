@@ -44,7 +44,7 @@
 				  echo '<div class="home__post_container">
 									<div class="home__post_header">
 										<a href="'. base_url('account'. $navTo .'') .'" class="item">
-											<img src="'. base_url('content/dp/'. trim($row->profile_pic_url, '‘’').'') .'" alt="Post author image">
+											<img src="'. base_url('content/dp/'. trim($row->profile_pic_url, '''').'') .'" alt="Post author image">
 											<div class="name">'. ucfirst($row->firstname) .' '. ucfirst($row->lastname).'
 											<div class="date_privacy">
 											<div class="date">';
