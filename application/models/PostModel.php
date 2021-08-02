@@ -108,7 +108,7 @@ class PostModel extends CI_Model {
 	public function load_comments() {
 		$postId = $this->uri->segment(3);
 
-		$this->db->select('userId, comments.id AS commentId, users.firstname, users.lastname, comment, comments.updated_at');
+		$this->db->select('userId, comments.id AS commentId, users.profile_pic_url, users.firstname, users.lastname, comment, comments.updated_at');
 		$this->db->from('comments');
 		$this->db->join('users', 'users.id = comments.userId', 'left outer');
 		$this->db->where('postId', $postId);
