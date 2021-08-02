@@ -6,13 +6,13 @@
 	<?php $this->load->view('components/header'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/nav.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/User.css')?>">
-	<title><?= $this->session->username ?></title>
+	<title>Code - <?= $userDetails['0']->firstname ?> <?= $userDetails['0']->lastname ?></title>
 </head>
 <body>
 	<div class="account__main_container">
 		<div class="account__header">
 			<div class="account__top_options">
-				<a class="back_btn" href="<?php echo $_SERVER['HTTP_REFERER'] ?>">
+				<a class="back_btn" href="<?php echo site_url('/'); ?>">
 					<i class="far fa-arrow-left"></i>
 				</a>
 			</div>
@@ -23,7 +23,7 @@
 						<img src="<?php echo base_url('assets/imgs/undercover.png')?>" alt="User Cover Photo">
 					</div>
 					<div class="account__profile_photo">
-						<img src="<?php echo base_url('content/dp/'. trim($userDetails['0']->profile_pic_url, "''").'')?>" alt="User Profile Photo">
+						<img src="<?php echo base_url('content/dp/'. trim($userDetails['0']->profile_pic_url, "''").'')?>" alt="Img">
 				</div>
 
 				<div class="account__user_detail">
@@ -31,7 +31,19 @@
 						<?= $userDetails['0']->firstname ?> <?= $userDetails['0']->lastname ?>
 					</div>
 					<div class="account__user_detail_option">
-						<div class="item"><i class="fad fa-plus-circle"></i> Add to Story</div>
+						<?php 
+
+							$requestSenderArr = explode(',', $userDetails['0']->requestSender);
+
+							if(in_array($this->session->id, $requestSenderArr)) {
+								echo '<div class="item" onclick="cancel_friend_request('. $userDetails['0']->userId .')">Cancel Request</div>';
+							}
+							else {
+								echo '<div class="item" onclick="addfriend('. $userDetails['0']->userId .')">Add friend</div>';
+							}
+
+						?>
+						<div class="item"><i class="fab fa-facebook-messenger"></i></div>
 						<div class="item"><i class="fal fa-ellipsis-h-alt"></i></div>
 					</div>
 					<div class="account__user_personal_details">
@@ -61,5 +73,33 @@
 			</div>
 		</div>
 	</div>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		
+		// like interaction
+		async function addfriend(userId) {
+			$.ajax({
+		     url:'<?= site_url('/Friends/addFriend')?>',
+		     method: 'post',
+		     data: { userId: userId},
+		     dataType: 'json'	   
+		  })
+
+			location.reload();
+		}
+
+		async function cancel_friend_request(userId) {
+			$.ajax({
+		     url:'<?= site_url('/Friends/calcelFriendRequest')?>',
+		     method: 'post',
+		     data: { userId: userId},
+		     dataType: 'json'	   
+		  })
+
+			location.reload();
+		}
+		
+	</script>
 </body>
 </html>

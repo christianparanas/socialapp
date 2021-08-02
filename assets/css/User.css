@@ -93,8 +93,8 @@
 .account__user_detail_option {
 	margin-top: 15px;
 	display: grid;
-	grid-template-columns: 1fr 50px;
-	grid-gap: 5px;
+	grid-template-columns: 1fr 50px 50px;
+	grid-gap: 7px;
 }
 
 .account__user_detail_option .item {
@@ -108,7 +108,7 @@
 	background: #6b21a8;
 }
 
-.account__user_detail_option .item:nth-child(2) {
+.account__user_detail_option .item:nth-child(2), .account__user_detail_option .item:nth-child(3) {
 	background: #43394c;
 }
 

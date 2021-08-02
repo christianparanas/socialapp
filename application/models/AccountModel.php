@@ -40,11 +40,21 @@ class AccountModel extends CI_Model {
 		$username = $this->uri->segment(2);
 
 		// fetch current user details
-		$this->db->select('id AS userId, firstname, lastname, profile_pic_url, email, username, created_at');
+		$this->db->distinct();
+		$this->db->select('users.id AS userId, 
+											 firstname, 
+											 lastname, 
+											 profile_pic_url, 
+											 email, username,
+											 GROUP_CONCAT(friend_requests.userSenderId) AS requestSender,  
+											 users.created_at');
 		$this->db->from('users');
+		$this->db->join('friend_requests', 'friend_requests.userReceiverId = users.id', 'left outer');
 		$this->db->where('username', $username);
 
 		$query_result = $this->db->get();
+
+		echo json_encode($query_result->result());
 
 		return $query_result->result();
 	}

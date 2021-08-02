@@ -21,6 +21,24 @@ class Friends extends CI_Controller {
 		}
 	}
 
+	public function addFriend() {
+		if($this->session->userdata() && $this->session->isLoggedIn) {
+			$isSuccess = $this->FriendModel->add_friend();
+		}
+		else {
+			redirect('auth/');
+		}
+	}
+
+	public function calcelFriendRequest() {
+		if($this->session->userdata() && $this->session->isLoggedIn) {
+			$isSuccess = $this->FriendModel->cancel_friend_request();
+		}
+		else {
+			redirect('auth/');
+		}
+	}
+
 	public function list() {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
 			$this->load->view('Friends/list');
