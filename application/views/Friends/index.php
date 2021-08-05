@@ -25,8 +25,9 @@
 			
 			<div class="you_may_know_container">
 				<?php 
+					$receiversArr = explode(',', $this->session->fr_receivers);
 
-					if(sizeof($you_may_know_users) == 0) {
+					if((sizeof($you_may_know_users) - sizeof($receiversArr)) == 0) {
 						echo '<div class="no_suggest">
 										<div class="head">
 											<h4>No Suggestions</h4>
@@ -37,19 +38,22 @@
 					}
 					else {
 						echo '<h4>People you may know</h4>';
+
 						foreach($you_may_know_users as $you_may_know_user) {
-							echo '<div class="you_know_item">
-											<a href="'. base_url('account/'. $you_may_know_user->username .'') .'">
-												<img src="'. base_url('content/dp/'.trim($you_may_know_user->profile_pic_url, "''").'') .'" alt="user">
-											</a>
-											<div class="you_know_item_content">
-												<div class="name">'. ucfirst($you_may_know_user->firstname) .' '. ucfirst($you_may_know_user->lastname) .'</div>
-												<div class="you_know_op">
-													<div class="add">Add friend</div>
-													<div class="remove">Remove</div>
-												</div>
-											</div>
-										</div>';
+							if(!in_array($you_may_know_user->id, $receiversArr)) {
+								echo '<div class="you_know_item">
+									<a href="'. base_url('account/'. $you_may_know_user->username .'') .'">
+										<img src="'. base_url('content/dp/'.trim($you_may_know_user->profile_pic_url, "''").'') .'" alt="user">
+									</a>
+									<div class="you_know_item_content">
+										<div class="name">'. ucfirst($you_may_know_user->firstname) .' '. ucfirst($you_may_know_user->lastname) .'</div>
+										<div class="you_know_op">
+											<div class="add">Add friend</div>
+											<div class="remove">Remove</div>
+										</div>
+									</div>
+								</div>';
+							}
 						}
 					}
 
