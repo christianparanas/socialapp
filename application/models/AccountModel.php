@@ -53,9 +53,6 @@ class AccountModel extends CI_Model {
 		$this->db->where('username', $username);
 
 		$query_result = $this->db->get();
-
-		echo json_encode($query_result->result());
-
 		return $query_result->result();
 	}
 

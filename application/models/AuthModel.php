@@ -56,6 +56,6 @@ class AuthModel extends CI_Model {
 	}
 
 	public function logout() {
-		$this->session->unset_userdata(array('id', 'lastname', 'firstname', 'profile_pic_url', 'email', 'isLoggedIn'));
+		$this->session->unset_userdata(array('id', 'lastname', 'firstname', 'profile_pic_url', 'email', 'isLoggedIn', 'fr_receivers'));
 	}
 }

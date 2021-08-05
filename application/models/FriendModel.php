@@ -5,8 +5,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class FriendModel extends CI_Model {
 
 	public function people_you_may_know() {
-		$qq = $this->db->query("SELECT GROUP_CONCAT(userReceiverId) as fr_Receivers FROM friend_requests WHERE userSenderId =". $this->session->id);
-		$this->session->set_userdata('fr_receivers', $qq->result()[0]->fr_Receivers);
+		$fr = $this->db->query("SELECT GROUP_CONCAT(userReceiverId) as fr_Receivers FROM friend_requests WHERE userSenderId =". $this->session->id);
+		$fs = $this->db->query("SELECT GROUP_CONCAT(userSenderId) as fr_Senders FROM friend_requests WHERE userReceiverId =". $this->session->id);
+
+		$requests = array(
+			'fr_receivers' => $fr->result()[0]->fr_Receivers,
+			'fr_senders' => $fs->result()[0]->fr_Senders
+		);
+
+		$this->session->set_userdata($requests);
+
 
 		$this->db->select("users.id, firstname, lastname, profile_pic_url, username");
 		$this->db->from("users");
