@@ -50,8 +50,9 @@ class Friends extends CI_Controller {
 
 	public function requests() {
 		if($this->session->userdata() && $this->session->isLoggedIn) {
+			$data['requests'] = $this->FriendModel->load_friend_requests();
 
-			$this->load->view('Friends/requests');
+			$this->load->view('Friends/requests', $data);
 		}
 		else {
 			redirect('auth/');

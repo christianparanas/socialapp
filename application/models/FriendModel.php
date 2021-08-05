@@ -48,4 +48,16 @@ class FriendModel extends CI_Model {
 		
 		return $this->db->delete('friend_requests');	
 	}
+
+	public function load_friend_requests() {
+		$userId = $this->session->id;
+
+		$this->db->select('users.id, username, profile_pic_url, firstname, lastname, friend_requests.created_at');
+		$this->db->from('friend_requests');
+		$this->db->join('users', 'users.id = friend_requests.userSenderId', 'left outer');
+		$this->db->where('userReceiverId', $userId);
+		$query = $this->db->get();
+		
+		return $query->result();
+	}
 }
