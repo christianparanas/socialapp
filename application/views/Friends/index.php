@@ -28,7 +28,10 @@
 					$sendersArr = explode(',', $this->session->fr_senders);
 					$receiversArr = explode(',', $this->session->fr_receivers);
 
-					if((sizeof($you_may_know_users) - sizeof($receiversArr) - sizeof($sendersArr)) == 0) {
+					$count = sizeof($you_may_know_users) - sizeof($receiversArr) - sizeof($sendersArr);
+					echo $count;
+
+					if($count <= 0) {
 						echo '<div class="no_suggest">
 										<div class="head">
 											<h4>No Suggestions</h4>

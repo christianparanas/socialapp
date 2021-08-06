@@ -28,13 +28,12 @@
 									<div class="you_know_item_content">
 										<div class="name">'. ucfirst($request->firstname) .' '. ucfirst($request->lastname) .'</div>
 										<div class="you_know_op">
-											<div class="add">Accept</div>
+											<div class="add">Confirm</div>
 											<div class="remove">Remove</div>
 										</div>
 									</div>
 								</div>';
 				}
-
 			?>
 		</div>
 	</div>

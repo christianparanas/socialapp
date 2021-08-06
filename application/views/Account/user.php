@@ -34,9 +34,13 @@
 						<?php 
 
 							$requestSenderArr = explode(',', $userDetails['0']->requestSender);
+							$sendersArr = explode(',', $this->session->fr_senders);
 
 							if(in_array($this->session->id, $requestSenderArr)) {
 								echo '<div class="item" onclick="cancel_friend_request('. $userDetails['0']->userId .')">Cancel Request</div>';
+							}
+							elseif(in_array($userDetails['0']->userId, $sendersArr)) {
+								echo '<div class="item" onclick="addfriend('. $userDetails['0']->userId .')">Confirm</div>';
 							}
 							else {
 								echo '<div class="item" onclick="addfriend('. $userDetails['0']->userId .')">Add friend</div>';

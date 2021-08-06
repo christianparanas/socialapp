@@ -20,7 +20,17 @@ class AccountModel extends CI_Model {
 		// echo json_encode($query_result->result());
 
 		// remove session data
-		$this->session->unset_userdata(array('lastname', 'firstname', 'profile_pic_url', 'email', 'isLoggedIn'));
+		$this->session->unset_userdata(array('fr_receivers, fr_senders, lastname', 'firstname', 'profile_pic_url', 'email', 'isLoggedIn'));
+
+		$fr = $this->db->query("SELECT GROUP_CONCAT(userReceiverId) as fr_Receivers FROM friend_requests WHERE userSenderId =". $this->session->id);
+		$fs = $this->db->query("SELECT GROUP_CONCAT(userSenderId) as fr_Senders FROM friend_requests WHERE userReceiverId =". $this->session->id);
+
+		$requests = array(
+			'fr_receivers' => $fr->result()[0]->fr_Receivers,
+			'fr_senders' => $fs->result()[0]->fr_Senders
+		);
+
+		$this->session->set_userdata($requests);
 
 		$currentUserData = array(
       'firstname' => $query_result->result()[0]->firstname,
