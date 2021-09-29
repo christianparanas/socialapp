@@ -26,7 +26,6 @@ class AuthModel extends CI_Model {
 					);
 
 				$this->session->set_userdata($newdata);
-
 				redirect('/');
 			}
 			else {
